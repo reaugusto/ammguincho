@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Amm Guincho 24h | Parque São Domingos | Auto Socorro e Reboque</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Amm Guincho 24h no Parque São Domingos. Auto socorro e reboque de carros e motos com agilidade e preço justo. Atendimento rápido na região de Pirituba, Lapa e Jaraguá."/>
+    <meta name="keywords" content="guincho parque são domingos, reboque pirituba, auto socorro 24h, guincho 24h lapa, guincho barato são paulo, reboque de motos"/>
+    <link rel="canonical" href="https://ammguincho24h.com.br/"/>
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website"/>
+    <meta property="og:url" content="https://ammguincho24h.com.br/"/>
+    <meta property="og:title" content="Amm Guincho 24h | Parque São Domingos"/>
+    <meta property="og:description" content="Auto socorro especializado com agilidade e segurança. Atendimento para carros e motos no Parque São Domingos e região."/>
+    <meta property="og:image" content="https://ammguincho24h.com.br/assets/img/services/service_1.jpeg"/>
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image"/>
+    <meta property="twitter:url" content="https://ammguincho24h.com.br/"/>
+    <meta property="twitter:title" content="Amm Guincho 24h | Parque São Domingos"/>
+    <meta property="twitter:description" content="Auto socorro especializado com agilidade e segurança. Atendimento para carros e motos no Parque São Domingos e região."/>
+    <meta property="twitter:image" content="https://ammguincho24h.com.br/assets/img/services/service_1.jpeg"/>
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Amm Guincho 24h",
+      "image": "https://ammguincho24h.com.br/assets/img/services/service_1.jpeg",
+      "url": "https://ammguincho24h.com.br/",
+      "telephone": "+5511947771688",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "R. Homero Sales",
+        "addressLocality": "Parque Sao Domingos",
+        "addressRegion": "SP",
+        "postalCode": "05126-000",
+        "addressCountry": "BR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": -23.5116,
+        "longitude": -46.7457
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday"
+        ],
+        "opens": "00:00",
+        "closes": "23:59"
+      },
+      "sameAs": [
+        "https://ammguincho24h.com.br/"
+      ]
+    }
+    </script>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    
+    <!-- Fonts and Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    
+    <!-- GSAP Libraries (Animation Engine) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#dc2626", // red-600
+              "primary-container": "#7f1d1d", // red-900 (darker)
+              "primary-fixed": "#fee2e2", // red-100 (lighter)
+              "on-primary-fixed": "#450a0a", // red-950 (darkest)
+              "secondary": "#ef4444", // red-500 (vibrant)
+              "secondary-container": "#dc2626", // same red-600
+              "surface": "#09090b", // zinc-950 (black)
+              "on-surface": "#f4f4f5", // zinc-100 (white)
+              "on-surface-variant": "#a1a1aa", // zinc-400 (gray)
+              "surface-container-low": "#111111", // darker black
+              "surface-container-lowest": "#1a1a1a" // deep gray
+            },
+            fontFamily: {
+              "headline": ["Plus Jakarta Sans"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        html { scroll-behavior: smooth; }
+        body { background-color: #09090b; color: #f4f4f5; }
+        
+        /* GSAP Initial States */
+        .gsap-reveal {
+            opacity: 0;
+            visibility: hidden;
+        }
+        .hero-fade-up {
+            visibility: hidden;
+        }
+
+        /* Review Slider Hide Scrollbar */
+        #ag-reviews-slider::-webkit-scrollbar { display: none; }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface">
+
+    <!-- Top Navigation Bar -->
+    <nav class="fixed top-0 w-full z-50 bg-zinc-950/80 backdrop-blur-md shadow-md shadow-black/50 border-b border-zinc-800">
+        <div class="flex justify-between items-center px-6 py-4 max-w-7xl mx-auto">
+            <a href="#" class="text-2xl font-extrabold text-primary font-headline tracking-tight whitespace-nowrap">
+                Amm Guincho 24h
+            </a>
+            
+            <!-- Desktop Links -->
+            <div class="hidden md:flex items-center space-x-8 font-['Plus_Jakarta_Sans'] font-bold tracking-tight">
+                <a class="text-zinc-400 hover:text-white transition-colors" href="#servicos">Serviços</a>
+                <a class="text-zinc-400 hover:text-white transition-colors" href="#galeria">Galeria</a>
+                <a class="text-zinc-400 hover:text-white transition-colors" href="#avaliacoes">Avaliações</a>
+                <a class="text-zinc-400 hover:text-white transition-colors" href="#sobre">Sobre Nós</a>
+                <a class="text-zinc-400 hover:text-white transition-colors" href="#cobertura">Cobertura</a>
+            </div>
+
+            <div class="flex items-center space-x-4">
+                <a href="tel:+5511947771688" class="hidden lg:block px-6 py-2 border border-primary text-primary font-bold rounded-full hover:bg-zinc-800 transition-all scale-95 active:scale-90 duration-200">
+                    Ligue Agora
+                </a>
+                <a href="https://wa.me/5511947771688" target="_blank" class="px-6 py-2 bg-secondary text-white font-bold rounded-full shadow-lg shadow-red-900/20 hover:brightness-110 transition-all scale-95 active:scale-90 duration-200">
+                    WhatsApp
+                </a>
+                
+                <!-- Mobile Menu Button -->
+                <button onclick="toggleMobileMenu()" class="md:hidden w-10 h-10 flex items-center justify-center text-primary bg-primary/10 rounded-xl">
+                    <span id="menuIcon" class="material-symbols-outlined">menu</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobileMenu" class="hidden fixed inset-0 top-[76px] bg-zinc-950 z-40 transform translate-x-full transition-transform duration-300 md:hidden">
+            <div class="flex flex-col p-8 space-y-6 font-headline font-bold text-xl">
+                <a onclick="toggleMobileMenu()" class="text-zinc-100 border-b border-zinc-800 pb-4" href="#servicos">Serviços</a>
+                <a onclick="toggleMobileMenu()" class="text-zinc-100 border-b border-zinc-800 pb-4" href="#galeria">Galeria</a>
+                <a onclick="toggleMobileMenu()" class="text-zinc-100 border-b border-zinc-800 pb-4" href="#avaliacoes">Avaliações</a>
+                <a onclick="toggleMobileMenu()" class="text-zinc-100 border-b border-zinc-800 pb-4" href="#sobre">Sobre Nós</a>
+                <a onclick="toggleMobileMenu()" class="text-zinc-100 border-b border-zinc-800 pb-4" href="#cobertura">Cobertura</a>
+                <div class="pt-6">
+                    <a href="tel:+5511947771688" class="inline-block w-full text-center px-6 py-4 border border-primary text-primary font-bold rounded-2xl mb-4">Ligar Agora</a>
+                    <a href="https://wa.me/5511947771688" target="_blank" class="inline-block w-full text-center px-6 py-4 bg-primary text-white font-bold rounded-2xl">Chamar WhatsApp</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative pt-32 pb-20 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div class="z-10 hero-fade-up">
+                <span class="inline-block py-1 px-4 rounded-full bg-primary-fixed text-on-primary-fixed text-xs font-bold tracking-widest uppercase mb-6">
+                    Assistência 24h de Prontidão
+                </span>
+                <h1 class="font-headline text-5xl md:text-7xl font-extrabold text-on-surface leading-[1.1] tracking-tight mb-8">
+                    Guincho no Parque <span class="text-primary">SÃO DOMINGOS</span> e Região
+                </h1>
+                <p class="text-lg md:text-xl text-on-surface-variant mb-10 max-w-xl leading-relaxed">
+                    Auto socorro especializado com agilidade e segurança. Atendimento para carros, motos e veículos leves com quem entende da região.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="https://wa.me/5511947771688" target="_blank" class="px-8 py-4 bg-gradient-to-br from-primary to-primary-container text-white font-bold rounded-full flex items-center gap-2 shadow-xl shadow-red-900/40 hover:scale-105 active:scale-95 transition-all">
+                        <span class="material-symbols-outlined" data-icon="phone_forwarded">phone_forwarded</span>
+                        WhatsApp 24h
+                    </a>
+                    <a href="tel:+5511947771688" class="px-8 py-4 border border-zinc-700 text-zinc-300 hover:text-white hover:border-primary font-bold rounded-full hover:bg-zinc-800 transition-all">
+                        Ligar Agora
+                    </a>
+                </div>
+            </div>
+            
+            <div class="relative hero-fade-up">
+                <div class="absolute -top-12 -right-12 w-64 h-64 bg-primary/10 rounded-full blur-3xl"></div>
+                <div class="relative rounded-xl overflow-hidden shadow-2xl shadow-black/50 transform rotate-1 hover:rotate-0 transition-transform duration-700">
+                    <img alt="Serviço de guincho e auto socorro 24h no Parque São Domingos" class="w-full h-[500px] object-cover opacity-80" src="https://ammguincho24h.com.br/assets/img/services/service_1.jpeg"/>
+                    <div class="absolute inset-0 bg-gradient-to-t from-surface to-transparent"></div>
+                    <div class="absolute inset-0 bg-primary/10 mix-blend-overlay"></div>
+                    <div class="absolute bottom-6 left-6 bg-zinc-900/90 border border-zinc-800 backdrop-blur p-4 rounded-lg shadow-xl flex items-center gap-4">
+                        <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white">
+                            <span class="material-symbols-outlined" data-icon="timer">timer</span>
+                        </div>
+                        <div>
+                            <p class="text-xs font-bold text-on-surface-variant uppercase">Resgate</p>
+                            <p class="text-xl font-bold text-primary">Express</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Services Grid -->
+    <section id="servicos" class="py-24 bg-surface-container-low border-y border-zinc-800/50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="mb-16 gsap-reveal">
+                <h2 class="font-headline text-4xl font-extrabold text-on-surface mb-4">Serviços que Disponibilizamos</h2>
+                <div class="h-1.5 w-24 bg-primary rounded-full"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-6 gsap-reveal">
+                <!-- Auto Socorro Card -->
+                <div class="md:col-span-8 bg-surface-container-lowest border border-zinc-800 p-8 rounded-xl md:rounded-tr-[3rem] shadow-sm hover:shadow-red-900/10 hover:shadow-lg transition-all group">
+                    <div class="flex justify-between items-start mb-12">
+                        <span class="material-symbols-outlined text-5xl text-primary" data-icon="car_repair">car_repair</span>
+                        <span class="text-on-primary-fixed font-bold text-sm bg-primary-fixed px-3 py-1 rounded-full">Emergência</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 font-headline text-white">Auto Socorro 24h</h3>
+                    <p class="text-on-surface-variant max-w-md">Assistência em casos de pane mecânica, elétrica, pneu furado, falta de combustível e muito mais. Garantimos agilidade e segurança.</p>
+                </div>
+                <!-- Motos Card -->
+                <div class="md:col-span-4 bg-primary text-white p-8 rounded-xl md:rounded-bl-[3rem] flex flex-col justify-between group shadow-red-900/20 shadow-lg">
+                    <div>
+                        <span class="material-symbols-outlined text-5xl mb-6 text-white group-hover:scale-110 origin-left transition-transform" data-icon="two_wheeler">two_wheeler</span>
+                        <h3 class="text-2xl font-bold mb-4 font-headline text-white">Motos</h3>
+                    </div>
+                    <p class="text-red-50 text-sm">Transporte seguro com equipamentos específicos de fixação para não danificar sua moto.</p>
+                </div>
+                <!-- Small Cards -->
+                <div class="md:col-span-4 bg-surface-container-lowest border border-zinc-800 p-8 rounded-xl shadow-sm hover:shadow-red-900/10 transition-all group hover:border-primary">
+                    <span class="material-symbols-outlined text-4xl text-primary mb-6 group-hover:-translate-y-1 transition-transform" data-icon="local_shipping">local_shipping</span>
+                    <h3 class="text-xl font-bold mb-2 font-headline">Transporte de Veículos</h3>
+                    <p class="text-on-surface-variant text-sm">Ideal para mudanças, feiras ou transferência para oficinas com total pontualidade.</p>
+                </div>
+                <div class="md:col-span-4 bg-surface-container-lowest border border-zinc-800 p-8 rounded-xl shadow-sm hover:shadow-red-900/10 transition-all group hover:border-primary">
+                    <span class="material-symbols-outlined text-4xl text-primary mb-6 group-hover:-translate-y-1 transition-transform" data-icon="battery_charging_full">battery_charging_full</span>
+                    <h3 class="text-xl font-bold mb-2 font-headline">Recarga de Bateria</h3>
+                    <p class="text-on-surface-variant text-sm">Atendimento rápido para veículos com bateria descarregada em qualquer local.</p>
+                </div>
+                <div class="md:col-span-4 bg-surface-container-lowest border border-zinc-800 p-8 rounded-xl shadow-sm hover:shadow-red-900/10 transition-all group hover:border-primary">
+                    <span class="material-symbols-outlined text-4xl text-primary mb-6 group-hover:-translate-y-1 transition-transform" data-icon="no_crash">no_crash</span>
+                    <h3 class="text-xl font-bold mb-2 font-headline">Reboque Seguro</h3>
+                    <p class="text-on-surface-variant text-sm">Plataforma hidráulica moderna para garantir a integridade total do seu automóvel.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="sobre" class="py-24 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+                <div class="order-2 lg:order-1 relative gsap-reveal">
+                    <div class="absolute inset-0 bg-primary/10 rounded-[4rem] -rotate-3"></div>
+                    <img alt="Nossa Equipe" class="relative z-10 rounded-[3rem] w-full h-[600px] object-cover shadow-2xl opacity-80" src="https://ammguincho24h.com.br/assets/img/services/service_2.jpeg"/>
+                    <div class="absolute -bottom-8 -right-8 z-20 bg-primary p-10 rounded-xl text-white shadow-xl shadow-red-900/30 max-w-xs hover:scale-105 transition-transform duration-300">
+                        <p class="text-4xl font-extrabold mb-2 text-white">4.9/5</p>
+                        <p class="text-sm font-bold uppercase tracking-widest text-red-50">Avaliação Excelente no Google</p>
+                    </div>
+                </div>
+                <div class="order-1 lg:order-2 gsap-reveal">
+                    <span class="text-primary font-bold tracking-widest uppercase text-sm">Sobre Amm Guincho</span>
+                    <h2 class="font-headline text-5xl font-extrabold text-on-surface mt-4 mb-8 leading-tight">Compromisso com a sua Segurança no Asfalto</h2>
+                    <p class="text-xl text-on-surface-variant leading-relaxed mb-8">
+                        Na **Amm Guincho 24h**, transformamos situações de estresse em tranquilidade. Com foco no Parque São Domingos e região, operamos com equipamentos modernos e uma equipe qualificada para garantir que seu veículo chegue ao destino em perfeitas condições.
+                    </p>
+                    <p class="text-on-surface-variant leading-relaxed mb-10">
+                        Somos apaixonados por oferecer um serviço que combina tecnologia de ponta, agilidade no atendimento e um compromisso inabalável com a integridade do seu bem.
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-4">
+                            <span class="material-symbols-outlined text-primary" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                            <span class="font-semibold text-zinc-300 font-headline uppercase tracking-tight">Atendimento Regional Ágil</span>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <span class="material-symbols-outlined text-primary" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                            <span class="font-semibold text-zinc-300 font-headline uppercase tracking-tight">Equipe Técnica Especializada</span>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <span class="material-symbols-outlined text-primary" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                            <span class="font-semibold text-zinc-300 font-headline uppercase tracking-tight">Preço Justo e Transparência</span>
+                        </div>
+                    </div>
+                    <div class="mt-10">
+                        <button onclick="openMapModal()" class="px-8 py-4 bg-zinc-900 border border-zinc-700 text-zinc-200 font-bold rounded-full hover:bg-zinc-800 hover:border-primary transition-all shadow-lg flex items-center gap-2">
+                            <span class="material-symbols-outlined text-primary" data-icon="map">map</span>
+                            Ver Bairros Atendidos
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="galeria" class="py-24 bg-surface-container-low relative border-y border-zinc-800">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16 gsap-reveal">
+                <span class="text-primary font-bold tracking-widest uppercase text-sm">Resgates Recentes</span>
+                <h2 class="font-headline text-4xl font-extrabold text-on-surface mt-2 mb-4">Galeria Amm Guincho</h2>
+                <p class="text-on-surface-variant max-w-2xl mx-auto">Excelência em cada detalhe do transporte e auto socorro.</p>
+            </div>
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 gsap-reveal">
+                <div class="group relative overflow-hidden rounded-2xl aspect-square shadow-sm bg-zinc-900 border border-zinc-800 hover:border-primary transition-all cursor-pointer" onclick="openImageModal(this.querySelector('img').src)">
+                    <img src="https://ammguincho24h.com.br/assets/img/services/service_3.jpeg" alt="Resgate Amm" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500 opacity-90"/>
+                    <div class="absolute inset-0 bg-primary/0 group-hover:bg-primary/40 transition-colors duration-300 flex items-center justify-center z-10 opacity-0 group-hover:opacity-100">
+                        <span class="material-symbols-outlined text-white text-4xl">zoom_in</span>
+                    </div>
+                </div>
+                <div class="group relative overflow-hidden rounded-2xl aspect-square shadow-sm bg-zinc-900 border border-zinc-800 hover:border-primary transition-all cursor-pointer" onclick="openImageModal(this.querySelector('img').src)">
+                    <img src="https://ammguincho24h.com.br/assets/img/services/service_6.jpeg" alt="Resgate Amm" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500 opacity-90"/>
+                    <div class="absolute inset-0 bg-primary/0 group-hover:bg-primary/40 transition-colors duration-300 flex items-center justify-center z-10 opacity-0 group-hover:opacity-100">
+                        <span class="material-symbols-outlined text-white text-4xl">zoom_in</span>
+                    </div>
+                </div>
+                <div class="group relative overflow-hidden rounded-2xl aspect-square shadow-sm bg-zinc-900 border border-zinc-800 hover:border-primary transition-all cursor-pointer" onclick="openImageModal(this.querySelector('img').src)">
+                    <img src="https://ammguincho24h.com.br/assets/img/services/service_7.jpeg" alt="Resgate Amm" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500 opacity-90"/>
+                    <div class="absolute inset-0 bg-primary/0 group-hover:bg-primary/40 transition-colors duration-300 flex items-center justify-center z-10 opacity-0 group-hover:opacity-100">
+                        <span class="material-symbols-outlined text-white text-4xl">zoom_in</span>
+                    </div>
+                </div>
+                <div class="group relative overflow-hidden rounded-2xl aspect-square shadow-sm bg-zinc-900 border border-zinc-800 hover:border-primary transition-all cursor-pointer" onclick="openImageModal(this.querySelector('img').src)">
+                    <img src="https://ammguincho24h.com.br/assets/img/services/service_12.jpeg" alt="Resgate Amm" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500 opacity-90"/>
+                    <div class="absolute inset-0 bg-primary/0 group-hover:bg-primary/40 transition-colors duration-300 flex items-center justify-center z-10 opacity-0 group-hover:opacity-100">
+                        <span class="material-symbols-outlined text-white text-4xl">zoom_in</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section id="avaliacoes" class="py-24 bg-surface relative overflow-hidden border-b border-zinc-800">
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8 gsap-reveal">
+                <div class="max-w-xl">
+                    <span class="text-primary font-bold tracking-widest uppercase text-sm">Depoimentos Verificados</span>
+                    <h2 class="font-headline text-4xl lg:text-5xl font-extrabold text-on-surface mt-2 mb-6 leading-tight">O que nossos clientes dizem</h2>
+                    <div class="inline-flex items-center gap-4 bg-zinc-900 px-6 py-4 rounded-2xl border border-zinc-800">
+                        <span class="text-2xl font-black text-white">4.9</span>
+                        <div class="flex text-yellow-500">
+                            <span class="material-symbols-outlined fill-current" style="font-variation-settings:'FILL' 1;">star</span>
+                            <span class="material-symbols-outlined fill-current" style="font-variation-settings:'FILL' 1;">star</span>
+                            <span class="material-symbols-outlined fill-current" style="font-variation-settings:'FILL' 1;">star</span>
+                            <span class="material-symbols-outlined fill-current" style="font-variation-settings:'FILL' 1;">star</span>
+                            <span class="material-symbols-outlined fill-current" style="font-variation-settings:'FILL' 1;">star_half</span>
+                        </div>
+                        <div class="text-xs text-zinc-400 font-bold uppercase tracking-widest">61 Avaliações no Maps</div>
+                    </div>
+                </div>
+                <div class="flex gap-4">
+                    <button onclick="document.getElementById('ag-reviews-slider').scrollBy({left: -350, behavior: 'smooth'})" class="w-12 h-12 rounded-full border border-zinc-800 flex items-center justify-center text-white hover:bg-primary hover:border-transparent transition-all">
+                        <span class="material-symbols-outlined">arrow_back</span>
+                    </button>
+                    <button onclick="document.getElementById('ag-reviews-slider').scrollBy({left: 350, behavior: 'smooth'})" class="w-12 h-12 rounded-full border border-zinc-800 flex items-center justify-center text-white hover:bg-primary hover:border-transparent transition-all">
+                        <span class="material-symbols-outlined">arrow_forward</span>
+                    </button>
+                </div>
+            </div>
+            
+            <div id="ag-reviews-slider" class="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-12 style-scrollbar-none" style="scrollbar-width: none;">
+                <!-- Review Card 1 -->
+                <a href="https://maps.app.goo.gl/BC8KDoCKTCb5GwQ59" target="_blank" class="bg-zinc-900 shrink-0 w-[85%] sm:w-[350px] snap-center rounded-3xl p-8 border border-zinc-800 hover:border-primary transition-all">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-12 h-12 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold text-lg">A</div>
+                        <div>
+                            <div class="font-bold text-white">André Ricardo</div>
+                            <div class="text-xs text-zinc-500">há 1 mês</div>
+                        </div>
+                    </div>
+                    <div class="flex text-yellow-500 mb-4">
+                        <span class="material-symbols-outlined fill-current" style="font-variation-settings:'FILL' 1;">star</span><span class="material-symbols-outlined fill-current" style="font-variation-settings:'FILL' 1;">star</span><span class="material-symbols-outlined fill-current" style="font-variation-settings:'FILL' 1;">star</span><span class="material-symbols-outlined fill-current" style="font-variation-settings:'FILL' 1;">star</span><span class="material-symbols-outlined fill-current" style="font-variation-settings:'FILL' 1;">star</span>
+                    </div>
+                    <p class="text-zinc-400 text-sm italic">"Muito bom o serviço, indico pra todos da região. Guincho rápido e preço honesto!"</p>
+                </a>
+                <!-- Review Card 2 -->
+                <a href="https://maps.app.goo.gl/BC8KDoCKTCb5GwQ59" target="_blank" class="bg-zinc-900 shrink-0 w-[85%] sm:w-[350px] snap-center rounded-3xl p-8 border border-zinc-800 hover:border-primary transition-all">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-12 h-12 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold text-lg">C</div>
+                        <div>
+                            <div class="font-bold text-white">Camila Gomes</div>
+                            <div class="text-xs text-zinc-500">há 2 semanas</div>
+                        </div>
+                    </div>
+                    <div class="flex text-yellow-500 mb-4">
+                        <span class="material-symbols-outlined fill-current" style="font-variation-settings:'FILL' 1;">star</span><span class="material-symbols-outlined fill-current" style="font-variation-settings:'FILL' 1;">star</span><span class="material-symbols-outlined fill-current" style="font-variation-settings:'FILL' 1;">star</span><span class="material-symbols-outlined fill-current" style="font-variation-settings:'FILL' 1;">star</span><span class="material-symbols-outlined fill-current" style="font-variation-settings:'FILL' 1;">star</span>
+                    </div>
+                    <p class="text-zinc-400 text-sm italic">"Parei no Pq São Domingos e me atenderam muito rápido. Super profissionais."</p>
+                </a>
+                <!-- Review Card 3 -->
+                <a href="https://maps.app.goo.gl/BC8KDoCKTCb5GwQ59" target="_blank" class="bg-zinc-900 shrink-0 w-[85%] sm:w-[350px] snap-center rounded-3xl p-8 border border-zinc-800 hover:border-primary transition-all">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-12 h-12 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold text-lg">R</div>
+                        <div>
+                            <div class="font-bold text-white">Roberto Paes</div>
+                            <div class="text-xs text-zinc-500">há 1 semana</div>
+                        </div>
+                    </div>
+                    <div class="flex text-yellow-500 mb-4">
+                        <span class="material-symbols-outlined fill-current" style="font-variation-settings:'FILL' 1;">star</span><span class="material-symbols-outlined fill-current" style="font-variation-settings:'FILL' 1;">star</span><span class="material-symbols-outlined fill-current" style="font-variation-settings:'FILL' 1;">star</span><span class="material-symbols-outlined fill-current" style="font-variation-settings:'FILL' 1;">star</span><span class="material-symbols-outlined fill-current" style="font-variation-settings:'FILL' 1;">star_half</span>
+                    </div>
+                    <p class="text-zinc-400 text-sm italic">"Atendimento impecável, equipe educada e cuidadosa com o carro rebaixado."</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer / Coverage -->
+    <footer id="cobertura" class="w-full bg-zinc-950 text-zinc-300 py-16 border-t border-zinc-800">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 px-8 max-w-7xl mx-auto">
+            <div class="space-y-6">
+                <span class="text-2xl font-black text-white font-headline">Amm Guincho 24h</span>
+                <p class="text-zinc-500 text-sm leading-relaxed max-w-xs">
+                    Excelência em Auto Socorro Regional. Sua assistência de confiança no Parque São Domingos e arredores.
+                </p>
+                <div class="flex gap-4">
+                    <a href="https://wa.me/5511947771688" target="_blank" class="text-primary hover:text-white transition-colors cursor-pointer">
+                        <span class="material-symbols-outlined text-3xl" data-icon="forum">forum</span>
+                    </a>
+                </div>
+            </div>
+            <div class="space-y-6">
+                <h4 class="font-headline font-bold text-sm uppercase tracking-widest text-primary">Região de Atendimento</h4>
+                <ul class="space-y-4 text-xs font-bold uppercase tracking-tighter">
+                    <li class="text-zinc-400 hover:text-white cursor-pointer transition-colors">Parque São Domingos</li>
+                    <li class="text-zinc-400 hover:text-white cursor-pointer transition-colors">City América & Pirituba</li>
+                    <li class="text-zinc-400 hover:text-white cursor-pointer transition-colors">Vila Jaguara & Anastácio</li>
+                    <li class="text-zinc-400 hover:text-white cursor-pointer transition-colors">Lapa & Leopoldina</li>
+                </ul>
+            </div>
+            <div class="space-y-6">
+                <h4 class="font-headline font-bold text-sm uppercase tracking-widest text-primary">Contato Urgente</h4>
+                <ul class="space-y-4 text-xs font-bold uppercase tracking-tighter">
+                    <li><a href="tel:+5511947771688" class="text-zinc-400 hover:text-white transition-colors">Ligar Agora</a></li>
+                    <li><a href="https://wa.me/5511947771688" target="_blank" class="text-zinc-400 hover:text-white transition-colors">Chamar no WhatsApp</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-8 pt-16 border-t border-zinc-800 text-center md:text-left mt-8">
+            <p class="text-zinc-600 text-[10px] font-bold uppercase tracking-[0.2em]">
+                © 2026 Amm Guincho 24h. Auto Socorro Parque São Domingos.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Emergency Floating Button -->
+    <div class="fixed bottom-8 right-8 z-[90]">
+        <a href="https://wa.me/5511947771688" target="_blank" class="w-16 h-16 bg-primary text-white rounded-full shadow-2xl shadow-red-900/50 border border-red-500/20 flex items-center justify-center hover:scale-110 active:scale-95 transition-all group">
+            <span class="material-symbols-outlined text-3xl group-hover:rotate-12 transition-transform" data-icon="sos">sos</span>
+        </a>
+    </div>
+
+    <!-- Modals -->
+    <div id="imageModal" class="fixed inset-0 z-[9999] hidden bg-black/95 backdrop-blur-md flex items-center justify-center p-4 opacity-0 transition-opacity duration-300">
+        <button onclick="closeModals()" class="absolute top-6 right-6 text-white hover:text-primary transition-colors z-50">
+            <span class="material-symbols-outlined text-5xl">close</span>
+        </button>
+        <img id="modalImage" src="" alt="Imagem Ampliada" class="max-w-full max-h-[90vh] rounded-2xl shadow-2xl scale-95 transition-transform duration-300 object-contain">
+    </div>
+
+    <div id="mapModal" class="fixed inset-0 z-[9999] hidden bg-black/90 backdrop-blur-sm flex items-center justify-center p-4 md:p-8 opacity-0 transition-opacity duration-300">
+        <div class="bg-zinc-950 border border-zinc-800 rounded-3xl p-8 max-w-5xl w-full shadow-[0_0_50px_rgba(0,0,0,0.8)] relative scale-95 transition-transform duration-300 flex flex-col md:flex-row gap-8 overflow-y-auto max-h-[95vh]">
+            <button onclick="closeModals()" class="absolute top-6 right-6 text-zinc-500 hover:text-primary transition-colors z-10 bg-zinc-900 rounded-full p-1 border border-zinc-800">
+                <span class="material-symbols-outlined text-3xl block">close</span>
+            </button>
+            <div class="md:w-5/12 flex flex-col justify-center">
+                <span class="text-primary font-bold tracking-widest uppercase text-xs mb-2">Cobertura Amm Guincho</span>
+                <h3 class="font-headline text-3xl font-extrabold text-white mb-4">Parque São <br><span class="text-primary">Domingos & Região</span></h3>
+                <p class="text-zinc-400 leading-relaxed mb-6">
+                    Atendimento imediato em um raio estratégico para garantir o menor tempo de espera:
+                </p>
+                <ul class="space-y-4 mb-8">
+                    <li class="flex items-center gap-3 text-zinc-300 font-bold text-xs uppercase tracking-tight"><span class="flex items-center justify-center w-8 h-8 rounded-full bg-primary/20 text-primary border border-primary/30"><span class="material-symbols-outlined text-lg">location_on</span></span> Pq São Domingos & City América</li>
+                    <li class="flex items-center gap-3 text-zinc-300 font-bold text-xs uppercase tracking-tight"><span class="flex items-center justify-center w-8 h-8 rounded-full bg-primary/20 text-primary border border-primary/30"><span class="material-symbols-outlined text-lg">location_on</span></span> Pirituba & Vila Jaguara</li>
+                    <li class="flex items-center gap-3 text-zinc-300 font-bold text-xs uppercase tracking-tight"><span class="flex items-center justify-center w-8 h-8 rounded-full bg-primary/20 text-primary border border-primary/30"><span class="material-symbols-outlined text-lg">location_on</span></span> Lapa & Leopoldina</li>
+                    <li class="flex items-center gap-3 text-zinc-300 font-bold text-xs uppercase tracking-tight"><span class="flex items-center justify-center w-8 h-8 rounded-full bg-primary/20 text-primary border border-primary/30"><span class="material-symbols-outlined text-lg">location_on</span></span> Rod. Anhanguera & Bandeirantes</li>
+                </ul>
+                <a href="https://wa.me/5511947771688" target="_blank" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary text-white font-bold rounded-full hover:shadow-lg hover:shadow-red-500/30 transition-all w-fit group">
+                    Chamar Agora
+                    <span class="material-symbols-outlined block group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                </a>
+            </div>
+            <div class="md:w-7/12 h-[300px] md:h-auto min-h-[400px] rounded-2xl overflow-hidden shadow-inner bg-zinc-950 border border-zinc-800 relative">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14634.3160867825!2d-46.7457788!3d-23.511636!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cef898b04ea4f9%3A0xe21d00c3b372781!2sParque%20S%C3%A3o%20Domingos%2C%20S%C3%A3o%20Paulo%20-%20SP!5e0!3m2!1spt-BR!2sbr!4v1711736841234!5m2!1spt-BR!2sbr" width="100%" height="100%" style="border:0; filter: invert(90%) hue-rotate(180deg) brightness(85%) contrast(90%);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- GSAP / UI Logic -->
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const icon = document.getElementById('menuIcon');
+            const isHidden = menu.classList.contains('hidden');
+
+            if (isHidden) {
+                menu.classList.remove('hidden');
+                setTimeout(() => menu.classList.remove('translate-x-full'), 10);
+                icon.innerText = 'close';
+            } else {
+                menu.classList.add('translate-x-full');
+                setTimeout(() => menu.classList.add('hidden'), 300);
+                icon.innerText = 'menu';
+            }
+        }
+
+        function openImageModal(src) {
+            const modal = document.getElementById('imageModal');
+            const img = document.getElementById('modalImage');
+            img.src = src;
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                img.classList.remove('scale-95');
+                img.classList.add('scale-100');
+            }, 10);
+            document.body.style.overflow = 'hidden';
+        }
+
+        function openMapModal() {
+            const modal = document.getElementById('mapModal');
+            const content = modal.querySelector('div.w-full');
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                content.classList.remove('scale-95');
+                content.classList.add('scale-100');
+            }, 10);
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModals() {
+            const imageModal = document.getElementById('imageModal');
+            const mapModal = document.getElementById('mapModal');
+            
+            imageModal.classList.add('opacity-0');
+            document.getElementById('modalImage').classList.remove('scale-100');
+            document.getElementById('modalImage').classList.add('scale-95');
+
+            mapModal.classList.add('opacity-0');
+            const mapContent = mapModal.querySelector('div.w-full');
+            mapContent.classList.remove('scale-100');
+            mapContent.classList.add('scale-95');
+
+            setTimeout(() => {
+                imageModal.classList.add('hidden');
+                mapModal.classList.add('hidden');
+                document.body.style.overflow = '';
+            }, 300);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            gsap.registerPlugin(ScrollTrigger);
+            
+            // Hero Animation
+            const heroElements = document.querySelectorAll('.hero-fade-up');
+            gsap.set(heroElements, { y: 40, opacity: 0, visibility: 'visible' });
+            gsap.to(heroElements, {
+                y: 0,
+                opacity: 1,
+                duration: 1,
+                stagger: 0.15,
+                ease: "power3.out"
+            });
+
+            // Reveal Animation
+            const revealElements = document.querySelectorAll('.gsap-reveal');
+            revealElements.forEach((el) => {
+                gsap.fromTo(el, 
+                    { y: 60, autoAlpha: 0 },
+                    {
+                        y: 0,
+                        autoAlpha: 1,
+                        duration: 1,
+                        ease: "power2.out",
+                        scrollTrigger: {
+                            trigger: el,
+                            start: "top 85%",
+                            toggleActions: "play none none reverse"
+                        }
+                    }
+                );
+            });
+        });
+
+        // Close on Escape
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModals(); });
+        document.getElementById('imageModal').addEventListener('click', (e) => { if (e.target === document.getElementById('imageModal')) closeModals(); });
+        document.getElementById('mapModal').addEventListener('click', (e) => { if (e.target === document.getElementById('mapModal')) closeModals(); });
+    </script>
+</body>
+</html>
